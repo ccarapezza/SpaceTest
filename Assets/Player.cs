@@ -7,11 +7,12 @@ public class Player : MonoBehaviour
     public float speed;
     public List<GameObject> barrels;
     public GameObject shotPrefab;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
+        animator.SetFloat("x-axis", x);
         Vector2 direction = new Vector2(x, y).normalized;
         Move(direction);
 
