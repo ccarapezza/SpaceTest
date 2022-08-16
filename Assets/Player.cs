@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
-        animator.SetFloat("x-axis", x);
+        animator.SetInteger("x-axis", x>0?1:(x<0?-1:0));
         Vector2 direction = new Vector2(x, y).normalized;
         Move(direction);
 
